@@ -13,12 +13,19 @@
         state: latest
     - name: set up repo
       shell: yum-config-manager --add-repo=https://download.docker.com/linux/rhel/docker-ce.repo
+    - name: Import a key from a url
+      rpm_key:
+        state: present
+        key: https://download.docker.com/linux/rhel/gpg
     - name: install docker
       yum:
         name:
-          - docker-ce-stable
-          - docker-ce-cli-stable
+          - docker-ce
+          - docker-ce-cli
           - containerd.io
           - docker-compose-pluggin
         state: latest
+
+        
+
       
