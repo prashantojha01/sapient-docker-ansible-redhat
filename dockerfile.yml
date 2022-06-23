@@ -16,7 +16,15 @@
     - name: Import a key from a url
       rpm_key:
         state: present
-        key: https://download.docker.com/linux/rhel/gpg
+        key: "https://download.docker.com/linux/rhel/gpg"
+    - name: add repository in repo.d list
+      yum_repository:
+        name: docker
+        description: docker repository
+        baseurl: "https://download.docker.com/linux/rhel/8.2" 
+        enable: true
+        gpgcheck: true
+        gpgkey: "https://download.docker.com/linux/rhel/gpg"
     - name: install docker
       yum:
         name:
