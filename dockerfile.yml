@@ -25,15 +25,4 @@
         enable: true
         gpgcheck: true
         gpgkey: "https://download.docker.com/linux/rhel/gpg"
-    - name: install docker
-      yum:
-        name:
-          - docker-ce
-          - docker-ce-cli
-          - containerd.io
-          - docker-compose-pluggin
-        state: latest
-
-        
-
-      
+   
