@@ -1,0 +1,13 @@
+---
+-
+  hosts: client
+  var:
+    container_count: 4
+    container_name: redhatdocker
+    container_image: prashantojha01/customer:v1
+    customer_command: sleep 1
+  tasks:
+    - name: install yum-util
+      yum:
+        name: yum-utils
+        state: latest
